@@ -4,6 +4,7 @@ import { defaultTheme } from "./styles/themes/default";
 
 export function App() {
 
+  // We can use ThemeProvider as a way to switch between light and dark themes
   return (
     <ThemeProvider theme={defaultTheme}>
       <Button variant="primary"/>
