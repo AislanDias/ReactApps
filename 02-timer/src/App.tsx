@@ -1,6 +1,7 @@
 import { Button } from "./componets/Button";
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from "./styles/themes/default";
+import { GlobalStyle } from "./styles/global";
 
 export function App() {
 
@@ -11,6 +12,8 @@ export function App() {
       <Button variant="secondary"/>
       <Button variant="success"/>
       <Button/>
+
+      <GlobalStyle />
     </ThemeProvider>
   )
 }
