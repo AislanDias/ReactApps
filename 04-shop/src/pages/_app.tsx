@@ -1,5 +1,7 @@
 import { globalStyles } from "@/styles/global"
-import logoImg from '../assets/logo.svg'
+// import logoImg from '../assets/logo.svg'
+import homeImg from '../assets/home.png'
+
 import Image from "next/image";
 import { Container, Header } from "@/styles/pages/app.styles";
 
@@ -16,7 +18,7 @@ export default function App({
       <body>
         <Container>
           <Header>
-            <Image src={logoImg} alt="" />
+            <Image src={homeImg} alt="" />
           </Header>
           {children}
         </Container>
