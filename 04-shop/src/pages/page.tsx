@@ -11,7 +11,7 @@ import camiseta3 from '../assets/camisetas/3.png'
 import 'keen-slider/keen-slider.min.css'
 import { useEffect, useState } from "react"
 import { stripe } from "@/lib/stripe"
-import { GetServerSideProps } from "next"
+import { GetServerSideProps, GetStaticProps } from "next"
 import Stripe from "stripe"
 
 const Button = styled('button', {
@@ -74,7 +74,7 @@ export default function Home({ products }: HomeProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await stripe.products.list({
     expand: ['data.default_price']
   })
@@ -97,7 +97,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       products
-    }
+    },
+    revalidate: 60 * 60 * 2, // 2 hours
   }
 }
 
