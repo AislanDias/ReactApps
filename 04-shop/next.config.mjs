@@ -5,6 +5,11 @@ const nextConfig = {
   //     allowFutureImage: true
   //   }
   // }
+  images: {
+    remotePatterns: [
+      'files.stripe.com'
+    ]
+  }
 };
 
 export default nextConfig;
