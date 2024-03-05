@@ -2,6 +2,7 @@ import { stripe } from "@/lib/stripe"
 import { ImageContainer, ProductContainer, ProductDetails } from "@/styles/pages/product.styles"
 import { GetStaticPaths, GetStaticProps } from "next"
 import Image from "next/image"
+import { useRouter } from "next/router"
 import Stripe from "stripe"
 
 interface ProductProps {
@@ -15,6 +16,11 @@ interface ProductProps {
 }
 
 export default function Product({ product }: ProductProps) {
+  const { isFallback } = useRouter()
+
+  if (isFallback) {
+    return <p>Loading...</p>
+  }
 
   return (
     <ProductContainer>
@@ -37,11 +43,18 @@ export default function Product({ product }: ProductProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  // Alternative Options: When generating too much static pages
+  // Buscar os produtos mais vendidos / mais acessados
+
   return {
+    // Load the most accessed pages or nothing
     paths: [
       { params: { id: 'prodIdSample' } }
     ],
-    fallback: false
+    // This option can be enabled as a way to generate static pages not 
+    // generated previously, next will try to solve the path
+    // fallback: true,
+    fallback: 'blocking'
   }
 }
 
