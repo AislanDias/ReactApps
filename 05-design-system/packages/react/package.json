@@ -1,5 +1,5 @@
 {
-  "name": "@aislan/tokens",
+  "name": "@aislan/react",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -7,13 +7,13 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@aislan/tokens": "*",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
   }
