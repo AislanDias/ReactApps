@@ -10,10 +10,10 @@ var colors = {
   gray700: "#29292E",
   gray800: "#202024",
   gray900: "#121214",
-  ignite300: "#00B37E",
-  ignite500: "#00875F",
-  ignite700: "#015F43",
-  ignite900: "#00291D"
+  andromeda300: "#00B37E",
+  andromeda500: "#00875F",
+  andromeda700: "#015F43",
+  andromeda900: "#00291D"
 };
 export {
   colors

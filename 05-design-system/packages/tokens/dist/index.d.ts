@@ -9,10 +9,10 @@ declare const colors: {
     gray700: string;
     gray800: string;
     gray900: string;
-    ignite300: string;
-    ignite500: string;
-    ignite700: string;
-    ignite900: string;
+    andromeda300: string;
+    andromeda500: string;
+    andromeda700: string;
+    andromeda900: string;
 };
 
 export { colors };
