@@ -11,9 +11,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@aislan/tokens": "*",
+    "@aislan/ts-config": "*",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
   }
