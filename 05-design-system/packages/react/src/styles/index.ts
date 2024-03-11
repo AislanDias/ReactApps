@@ -25,6 +25,7 @@ export const {
     height: 'space',
     width: 'space',
   },
+
   theme: {
     colors,
     fontSizes,

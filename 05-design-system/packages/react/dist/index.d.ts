@@ -1,5 +1,6 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as _stitches_react_types_styled_component from '@stitches/react/types/styled-component';
+import * as _stitches_react_types_css_util from '@stitches/react/types/css-util';
 
-declare function App(): react_jsx_runtime.JSX.Element;
+declare const Button: _stitches_react_types_styled_component.StyledComponent<"button", {}, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;
 
-export { App };
+export { Button };
