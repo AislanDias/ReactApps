@@ -1,5 +1,2 @@
 node_modules
-
-./packages/react/dist/
-./packages/tokens/dist/
-./packages/ts-config/dist/
+dist
