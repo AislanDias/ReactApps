@@ -2,7 +2,7 @@ import type { StoryObj, Meta } from '@storybook/react'
 import { Avatar, AvatarProps } from '@aislan/react'
 
 export default {
-  title: 'Typography/Avatar',
+  title: 'Data display/Avatar',
   component: Avatar,
   args: {
     src: 'https://github.com/aislandias.png',
