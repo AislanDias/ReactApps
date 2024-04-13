@@ -1,23 +1,28 @@
-import { Content, Overlay, TransactionType, TransactionTypeButton } from "./newTransactionModal.styles";
-import { TransactionsContext } from "../../contexts/Transactions.context";
-import { useContext } from "react";
+import {
+  Content,
+  Overlay,
+  TransactionType,
+  TransactionTypeButton,
+} from './newTransactionModal.styles'
+import { TransactionsContext } from '../../contexts/Transactions.context'
+import { useContext } from 'react'
 
-import { Controller, useForm } from "react-hook-form";
+import { Controller, useForm } from 'react-hook-form'
 
-import * as z from 'zod';
-import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
-import * as Dialog from "@radix-ui/react-dialog";
+import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
+import * as Dialog from '@radix-ui/react-dialog'
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
   price: z.number(),
   category: z.string(),
-  type: z.enum(['income', 'outcome'])
+  type: z.enum(['income', 'outcome']),
 })
 
-type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
+type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export function NewTransactionModal() {
   const { createTransaction } = useContext(TransactionsContext)
@@ -26,26 +31,24 @@ export function NewTransactionModal() {
     control,
     register,
     handleSubmit,
-    formState: {
-      isSubmitting
-    },
-    reset
+    formState: { isSubmitting },
+    reset,
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: {
-      type: 'income'
-    }
+      type: 'income',
+    },
   })
 
   async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
     // await new Promise(resolve => setTimeout(resolve, 2000));
-    const { description, price, category, type } = data;
+    const { description, price, category, type } = data
 
     await createTransaction({
       description,
       price,
       category,
-      type
+      type,
     })
 
     reset()
@@ -58,14 +61,28 @@ export function NewTransactionModal() {
       <Content>
         <Dialog.Title>Nova transação</Dialog.Title>
         <form onSubmit={handleSubmit(handleCreateNewTransaction)}>
-          <input type="text" placeholder="Descrição" required {...register('description')} />
-          <input type="number" placeholder="Preço" required {...register('price', { valueAsNumber: true })} />
-          <input type="text" placeholder="Categoria" required {...register('category')} />
+          <input
+            type="text"
+            placeholder="Descrição"
+            required
+            {...register('description')}
+          />
+          <input
+            type="number"
+            placeholder="Preço"
+            required
+            {...register('price', { valueAsNumber: true })}
+          />
+          <input
+            type="text"
+            placeholder="Categoria"
+            required
+            {...register('category')}
+          />
           <Controller
             control={control}
             name="type"
             render={({ field }) => {
-
               return (
                 <TransactionType
                   onValueChange={field.onChange}
